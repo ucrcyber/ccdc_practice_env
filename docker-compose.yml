@@ -3,8 +3,8 @@ services:
   ub_1:
     build: ./ubuntu_practice
     ports:
-      - "8000:22"
-      - "8001:80"
+      - "8400:22"
+      - "8401:80"
   ub_2:
     build: ./ubuntu_practice
     ports:
@@ -16,3 +16,10 @@ services:
       - "9000:22"
     environment:
       SSH_USERPASS: password
+  splunk:
+    image: splunk/splunk:latest
+    ports:
+      - "8000:8000"
+    environment:
+      SPLUNK_START_ARGS: --accept-license
+      SPLUNK_PASSWORD: adminadmin
