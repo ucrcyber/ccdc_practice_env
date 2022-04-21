@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  ub_1:
+    build: ./ubuntu_practice
+    ports:
+      - "8000:22"
+      - "8001:80"
+  ub_2:
+    build: ./ubuntu_practice
+    ports:
+      - "8500:22"
+      - "8501:80"
+  fd_1:
+    build: ./fedora_practice
+    ports:
+      - "9000:22"
+    environment:
+      SSH_USERPASS: password
