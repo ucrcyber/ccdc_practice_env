@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+echo "root:root" | chpasswd
+
 service mysql start
 service nginx start
 service ssh start

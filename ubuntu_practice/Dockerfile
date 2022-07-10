@@ -4,7 +4,7 @@ FROM ubuntu:18.04
 RUN apt update && apt upgrade -y
 
 ## Change Root Password
-RUN echo "root:root" | chpasswd
+#RUN echo "root:root" | chpasswd
 
 # Install Utilities
 
@@ -31,8 +31,7 @@ RUN apt install mysql-server -y
 RUN service mysql start
 
 # RUN mysql -uroot -e 'CREATE DATABASE ucr; USE ucr; CREATE TABLE ucr_msg_board(uid int NOT NULL AUTO_INCREMENT, message varchar(100) NOT NULL, PRIMARY KEY (uid));'
-# RUN mysql -uroot -e "USE ucr; INSERT INTO ucr_msg_board (message) VALUES('flag{you_win_a_sticker_if_not_adil}');"
-# RUN mysql -uroot -e "USE ucr; INSERT INTO ucr_msg_board (message) VALUES('guys i kinda want to kill myself');"
+# RUN mysql -uroot -e "USE ucr; INSERT INTO ucr_msg_board (message) VALUES('flag{sqLLL}');"
 # RUN mysql -uroot -e "USE ucr; INSERT INTOPermitRootLogin yes ucr_msg_board (message) VALUES('roses are red violets are blue i cannot think of anythin');"
 # RUN mysql -uroot -e "USE ucr; INSERT INTO ucr_msg_board (message) VALUES('hehehheahhhh');"
 
