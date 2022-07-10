@@ -1,19 +1,19 @@
 version: "3.9"
 services:
   ub_1:
-    build: ./ubuntu_practice
+    build: ./images/ubuntu_practice
     ports:
       - "8400:22"
       - "8401:80"
     hostname: ubuntu_one
   ub_2:
-    build: ./ubuntu_practice
+    build: ./images/ubuntu_practice
     ports:
       - "8500:22"
       - "8501:80"
     hostname: ubuntu_two
   ub_3:
-    build: ./ubuntu_practice
+    build: ./images/ubuntu_practice
     ports:
       - "8600:22"
       - "8601:80"
@@ -31,7 +31,7 @@ services:
       - "9100:22"
     hostname: centos
   fd_1: #user:password
-    build: ./fedora_practice
+    build: ./images/fedora_practice
     ports:
       - "9200:22"
     environment:
