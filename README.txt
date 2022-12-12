@@ -7,3 +7,7 @@ the goal is for different docker-compose files to exist in the dockerfiles folde
 the goal in the long run is to only expose one port for the environment (a jumpbox) that you can rdp or some equivalent into and then interact with the environment normally from there
 
 man docker is op af
+
+To bring environment up: `docker-compose build` and `docker-compose up`
+
+To bring environment down: `docker-compose down` or hit delete 10 million times in docker desktop
