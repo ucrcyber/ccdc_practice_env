@@ -28,6 +28,11 @@ RUN (echo "samba"; echo "samba") | smbpasswd -a sambauser -s
 # RUN smbpasswd -a sambauser
 RUN smbpasswd -e sambauser
 
+# Create files in fileshare
+RUN echo "Hello World" > /samba/share/hello.txt
+RUN echo "natem135 was here" > /samba/share/natem135.txt
+RUN chown sambauser:sambashare /samba/share/*.txt
+
 COPY script.sh /run.sh
 RUN chmod +x /run.sh
 
