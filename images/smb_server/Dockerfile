@@ -5,12 +5,13 @@ ENV PASS=root
 
 RUN apt update && apt upgrade -y
 RUN apt install vim net-tools curl sudo man netcat-openbsd -y
-RUN apt install samba openssh-server -y
+RUN apt install samba openssh-server smbclient -y
 
 RUN echo "root:root" | chpasswd
 
 # Backup SMB config
 RUN cp /etc/samba/smb.conf /etc/samba/smb.conf.orig
+COPY smb.conf /etc/samba/smb.conf
 
 # Setup Samba Directory
 RUN mkdir /samba/
