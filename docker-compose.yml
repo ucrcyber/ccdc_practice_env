@@ -1,49 +1,20 @@
 version: "3.9"
 services:
-  ub_1:
-    build: ./ubuntu_practice
-    ports:
-      - "8400:22"
-      - "8401:80"
-    hostname: ubuntu_one
-  ub_2:
-    build: ./ubuntu_practice
-    ports:
-      - "8500:22"
-      - "8501:80"
-    hostname: ubuntu_two
-  ub_3:
-    build: ./ubuntu_practice
-    ports:
-      - "8600:22"
-      - "8601:80"
-    hostname: ubuntu_three
-  arch: #docker:docker
-    image: retorillo/archlinux-sshd
-    ports:
-      - "9000:22"
-    hostname: arch
-  centos: 
-  #ssh -p 8700 -i vagrant app-admin@localhost
-  #https://raw.githubusercontent.com/hashicorp/vagrant/master/keys/vagrant
-    image: jdeathe/centos-ssh
-    ports:
-      - "9100:22"
-    hostname: centos
-  fd_1: #user:password
-    build: ./fedora_practice
-    ports:
-      - "9200:22"
-    environment:
-      SSH_USERPASS: password
-    hostname: fd_1
+  smb_server:
+    build: ./images/smb_server
+    hostname: smb_server
 
 
-  splunk:
-    image: splunk/splunk:latest
+  smb_client:
+    build: ./images/smb_client
     ports:
-      - "8000:8000"
-      - "9997:9997"
-    environment:
-      SPLUNK_START_ARGS: --accept-license
-      SPLUNK_PASSWORD: adminadmin
+      - "5000:22"
+    hostname: smb_client
+    # depends_on:
+    #   - smb_server
+    depends_on:
+      - serviceName: smb_server
+        condition: service_healthy
+    cap_add:
+      - SYS_ADMIN
+      - DAC_READ_SEARCH

@@ -1,0 +1,3 @@
+# UNCONFIGURED FSTAB FOR BASE SYSTEMi
+
+//smb_server/fileshare /media/share cifs username=sambauser,password=samba,uid=root,gid=root,iocharset=utf8 0 0
