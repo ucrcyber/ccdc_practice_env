@@ -12,6 +12,8 @@ RUN usermod -aG sudo blueteam
 COPY smbcreds /root/.smbcreds
 COPY fstab /etc/fstab
 
+RUN mkdir /media/share
+
 COPY script.sh /run.sh
 RUN chmod +x /run.sh
 

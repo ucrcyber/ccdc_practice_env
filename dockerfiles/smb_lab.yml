@@ -3,12 +3,20 @@ services:
   smb_server:
     build: ./images/smb_server
     hostname: smb_server
-
+    healthcheck:
+      test: ["CMD", "smbclient", "-L", "//localhost/"]
+      interval: 2s
+      timeout: 5s
+      retries: 10
 
   smb_client:
     build: ./images/smb_client
     ports:
       - "5000:22"
+    cap_add:
+      - SYS_ADMIN
+      - DAC_READ_SEARCH
     hostname: smb_client
     depends_on:
-      - smb_server
+      smb_server:
+        condition: service_healthy
