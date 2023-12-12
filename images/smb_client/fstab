@@ -1,0 +1,3 @@
+# UNCONFIGURED FSTAB FOR BASE SYSTEMi
+
+//smb_server/fileshare /media/share cifs credentials=/root/.smbcreds,uid=root,gid=root 0 0
